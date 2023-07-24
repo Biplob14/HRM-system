@@ -5,4 +5,10 @@ from .models import UserModel
 class UserRegistrationForm(forms.ModelForm):
     class Meta:
         model = UserModel
-        fields = '__all__'
+        fields = [
+            "first_name",
+            "last_name",
+            "email",
+            "password",
+            "image"
+        ]
