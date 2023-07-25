@@ -18,9 +18,9 @@
                 
                 {% comment %} books dorpdown {% endcomment %}
                 <li class="nav-item dropdown dropdown-cat">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Employees</a>
                     <ul class="dropdown-menu dropdown-menu-cat" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="">All Books</a></li>
+                        <li><a class="dropdown-item" href="">All Employees</a></li>
                         <li><hr class="dropdown-divider"></li>
                         {% for category in categories %}
                             <li><a class="dropdown-item" href="{% url 'books:categorise_books' category.name %}">{{ category.name|title }}</a></li>
@@ -29,9 +29,9 @@
                 </li>
                 {% comment %} authors dropdown {% endcomment %}
                 <li class="nav-item dropdown dropdown-cat">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Authors</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Designations</a>
                     <ul class="dropdown-menu dropdown-menu-cat" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="">All Books</a></li>
+                        <li><a class="dropdown-item" href="">All Designations</a></li>
                         <li><hr class="dropdown-divider"></li>
                         {% for author in authors %}
                             <li><a class="dropdown-item" href="">{{ author.name|title }}</a></li>
@@ -79,9 +79,9 @@
             </div>
         </div>
         {% else %}
-        <p class="text-white login-btn"><a href="{% url 'users:user_login' %}">Login </a></p>
+        <p class="text-white login-btn"><a href="{% url 'user_login' %}">Login </a></p>
         <p class="text-white login-signup-space">&nbsp; OR &nbsp;</p>
-        <p class="text-white signup-btn"><a href="{% url 'users:user_register' %}">Signup</a></p>
+        <p class="text-white signup-btn"><a href="">Signup</a></p>
         {% endif %}
     </div>
 </nav>

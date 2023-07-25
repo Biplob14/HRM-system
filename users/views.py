@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from .models import UserModel
 from .forms import UserRegistrationForm
 from django.shortcuts import render
@@ -15,4 +15,8 @@ class UserRegistration(CreateView):
 
 class UserLogin(LoginView):
     template_name = 'login.html'
-    # redirect_authenticated_user = True
+    redirect_authenticated_user = True
+
+class EmployeeList(ListView):
+    model = UserModel
+    template_name    = 'employee_list.html'

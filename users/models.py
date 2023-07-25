@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class UserModel(AbstractUser):
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     image = models.ImageField(upload_to='images/users/', null=True, blank=True)
     def __str__(self):
         return self.username
@@ -34,7 +34,10 @@ class BankDetails(models.ForeignKey):
 class UserDetailsModel(models.Model):
     employee_id = models.IntegerField()
     joining_date = models.DateField(auto_now_add=True)
+    birth_date = models.DateField(null=True)
     department = models.ForeignKey(DepartmentModel, on_delete=models.DO_NOTHING)
     designation = models.ForeignKey(DesignationModel, on_delete=models.DO_NOTHING)
     salary = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
+    def __str__(self):
+        self.employee_id

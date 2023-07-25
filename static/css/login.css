@@ -37,7 +37,8 @@
     bottom: -80px;
 }
 .login-form{
-    height: 520px;
+    height: auto;
+    max-height: 520px;
     width: 400px;
     background-color: rgb(105 101 101 / 7%);
     position: absolute;
@@ -89,7 +90,7 @@ form h3{
 .input-field:focus {
     background-color:#cacaca;
 }
-.login-btn{
+.login-form-btn{
     margin-top: 50px;
     width: 100%;
     background-color: #539344;
