@@ -1,0 +1,8 @@
+.employee-list-table {
+    /* border: 5px solid red; */
+    margin-top: 20px;
+}
+
+.employee-list-table table {
+    border: 6px solid rgba(96, 98, 83, 0.79);
+}

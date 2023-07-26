@@ -6,6 +6,9 @@ class UserModel(AbstractUser):
     email = models.EmailField(verbose_name='email address', max_length=255, unique=True)
     is_active = models.BooleanField(default=True)
     image = models.ImageField(upload_to='images/users/', null=True, blank=True)
+    
+    def full_name(self):
+        return self.user.get_full_name()
     def __str__(self):
         return self.username
 
