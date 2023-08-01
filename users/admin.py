@@ -14,3 +14,8 @@ class UserAdmin(admin.ModelAdmin):
         'first_name',
         'last_name',
     ]
+
+    def save_model(self, request, obj, form, change):
+        password = form.cleaned_data.get('password')
+        obj.set_password(password)
+        super().save_model(request, obj, form, change)
