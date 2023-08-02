@@ -26,7 +26,7 @@ class DesignationModel(models.Model):
     def __str__(self):
         return self.title
 
-class BankDetails(models.ForeignKey):
+class BankDetails(models.Model):
     bank_name = models.CharField(max_length=120)
     branch = models.CharField(max_length=120)
     account_number = models.CharField(max_length=120)
@@ -40,6 +40,7 @@ class UserDetailsModel(models.Model):
     birth_date = models.DateField(null=True)
     department = models.ForeignKey(DepartmentModel, on_delete=models.DO_NOTHING)
     designation = models.ForeignKey(DesignationModel, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(UserModel, on_delete=models.DO_NOTHING, null=True)
     salary = models.DecimalField(max_digits=12, decimal_places=2, default=0)
 
     def __str__(self):
