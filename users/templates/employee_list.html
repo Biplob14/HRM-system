@@ -10,23 +10,19 @@
             <tr>
                 <th scope="col">Serial</th>
                 <th scope="col">Employee Name</th>
+                <th scope="col">Employee ID</th>
                 <th scope="col">Designation</th>
                 <th scope="col">Salary</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Back</td>
-                <td>@mdo</td>
-            </tr>
-            {% for user in object_list %}
+            {% for emp in employee_list %}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
-                <td>{{ user.first_name }} {{ user.last_name }}</td>
-                <td>Backs</td>
-                <td>@mdo</td>
+                <td>{{ emp.user.first_name }} {{ emp.user.last_name }}</td>
+                <td>{{ emp.employee_id }}</td>
+                <td>{{ emp.designation }}</td>
+                <td>{{ emp.salary }}</td>
             </tr>
             {% endfor %}
 

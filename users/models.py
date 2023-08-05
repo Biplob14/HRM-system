@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 # Create your models here.
 
 class UserModel(AbstractUser):
@@ -42,6 +43,12 @@ class UserDetailsModel(models.Model):
     designation = models.ForeignKey(DesignationModel, on_delete=models.DO_NOTHING)
     user = models.ForeignKey(UserModel, on_delete=models.DO_NOTHING, null=True)
     salary = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    slug = models.SlugField(max_length=256, blank=True, null=True)
+    user_comment = models.TextField(null=True, blank=True)
+    phone_number = models.CharField(max_length=12, null=True, blank=True)
+
+    def get_absolute_url(self):
+        return reverse("users:employe_details", args=[self.slug])
 
     def __str__(self):
-        self.employee_id
+        return f"{self.employee_id}"
