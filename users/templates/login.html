@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}HRM system{% endblock %}
+
+{% block content %}
+    {% comment %} <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div> {% endcomment %}
+    <form class="login-form">
+        <h3>Login Here</h3>
+
+        <label for="username" class="login-input-label">Username</label>
+        <input type="text" class="input-field" placeholder="Email or Phone" id="username">
+
+        <label for="password" class="login-input-label">Password</label>
+        <input type="password" class="input-field" placeholder="Password" id="password">
+
+        <button class="login-form-btn">Log In</button>
+        <div class="social">
+            {% comment %} <div class="go"><i class="fab fa-google"></i>  Google</div>
+            <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div> {% endcomment %}
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Employee list {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/employee_list.css' %}" type="text/css">
+<div class="employee-list-table">
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Serial</th>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Employee ID</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in employee_list %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ emp.user.first_name }} {{ emp.user.last_name }}</td>
+                <td>{{ emp.employee_id }}</td>
+                <td>{{ emp.designation }}</td>
+                <td>{{ emp.salary }}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+{% endblock %}
