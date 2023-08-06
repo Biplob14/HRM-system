@@ -19,7 +19,11 @@
             {% for emp in employee_list %}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>
-                <td>{{ emp.user.first_name }} {{ emp.user.last_name }}</td>
+                <td>
+                    <a href="{{ emp.get_absolute_url }}">
+                    {{ emp.user.first_name|title }} {{ emp.user.last_name|title }}
+                    </a>
+                </td>
                 <td>{{ emp.employee_id }}</td>
                 <td>{{ emp.designation }}</td>
                 <td>{{ emp.salary }}</td>

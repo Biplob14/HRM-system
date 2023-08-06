@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Employee Details{% endblock %}
+{% block title %}Details {{ employee_details.user.username|title }}{% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/employee_details.css' %}" type="text/css">
@@ -14,8 +14,8 @@
                         <a href="#">
                             <img src="{{ employee_details.user.image.url }}" alt="">
                         </a>
-                        <h1>{{ employee_details.user.username }}</h1>
-                        <p><b>{{ employee_details.designation }}</b></p>
+                        <h1>{{ employee_details.user.username|title }}</h1>
+                        <p><b>{{ employee_details.designation|title }}</b></p>
                     </div>
         
                     <ul class="nav nav-pills nav-stacked">
@@ -33,10 +33,10 @@
                         <h1>Bio Graph</h1>
                         <div class="row">
                             <div class="bio-row">
-                                <p><span>First Name </span>: {{ employee_details.user.first_name }}</p>
+                                <p><span>First Name </span>: {{ employee_details.user.first_name|title }}</p>
                             </div>
                             <div class="bio-row">
-                                <p><span>Last Name </span>: {{ employee_details.user.last_name }}</p>
+                                <p><span>Last Name </span>: {{ employee_details.user.last_name|title }}</p>
                             </div>
                             <div class="bio-row">
                                 <p><span>Employee ID </span>: {{ employee_details.employee_id }}</p>
@@ -61,6 +61,20 @@
                             </div>
                             <div class="bio-row">
                                 <p><span>Mobile </span>: {{ employee_details.phone_number }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body bio-graph-info">
+                        <h1>Bank Details</h1>
+                        <div class="row">
+                            <div class="bio-row">
+                                <p><span>Bank Name </span>: {{ bank_details.bank_name|title }}</p>
+                            </div>
+                            <div class="bio-row">
+                                <p><span>Bank Branch </span>: {{ bank_details.branch|title }}</p>
+                            </div>
+                            <div class="bio-row">
+                                <p><span>Account Number </span>: {{ bank_details.account_number }}</p>
                             </div>
                         </div>
                     </div>
