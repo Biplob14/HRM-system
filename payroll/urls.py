@@ -3,5 +3,5 @@ from .views import PayrollView
 
 
 urlpatterns = [
-    path('', PayrollView.as_view(), name='payroll'),
+    path('<slug:slug>/', PayrollView.as_view(), name='payroll'),
 ]

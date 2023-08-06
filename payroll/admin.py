@@ -17,8 +17,17 @@ class TaxPercentageAdmin(admin.ModelAdmin):
 @admin.register(MonthlyPayment)
 class MonthlyPaymentAdmin(admin.ModelAdmin):
     readonly_fields=('gross_amount',)
+    exclude = [
+        'slug',
+    ]
     def save_model(self, request, obj, form, change):
+        tax_amount = 0
+        tax_data = TaxPercentage.objects.all()[0]
         selected_user = obj.user
         user_details_obj = UserDetailsModel.objects.get(user=selected_user)
-        obj.gross_amount = user_details_obj.salary + obj.allowance_amount - obj.deduction_amount
+        if user_details_obj.salary > tax_data.minimum_amount:
+            tax_amount = (user_details_obj.salary * tax_data.tax_percent) / 100
+        obj.gross_amount = user_details_obj.salary + obj.allowance_amount - obj.deduction_amount - tax_amount
+        obj.tax_amount = tax_amount
+        obj.slug = obj.user.username
         super().save_model(request, obj, form, change)

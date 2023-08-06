@@ -37,7 +37,6 @@ class UserDetailsAdmin(admin.ModelAdmin):
     # prepopulated_fields = {'slug': ('user.username', )}
     def save_model(self, request, obj, form, change):
         obj.slug = obj.user.username
-        print("user instance: ...........................", obj.user.username)
         obj.save()
 
 @admin.register(DepartmentModel)

@@ -7,3 +7,4 @@ class PayrollView(DetailView):
     model = MonthlyPayment
     template_name = 'payroll.html'
     context_object_name = 'payroll_data'
+    slug_field = 'slug'
