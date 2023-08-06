@@ -1,5 +1,7 @@
 from django.urls import path
+from .views import PayrollView
+
 
 urlpatterns = [
-    # path('/', )
+    path('', PayrollView.as_view(), name='payroll'),
 ]

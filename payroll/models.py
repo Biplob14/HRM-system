@@ -5,13 +5,14 @@ from users.models import UserModel, UserDetailsModel
 class MonthlyPayment(models.Model):
     user = models.ForeignKey(UserModel, on_delete=models.DO_NOTHING)
     allowance_reason = models.CharField(max_length=256, null=True, blank=True)
-    allowance_amount = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
+    allowance_amount = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True, default=0)
     deduction_reason = models.CharField(max_length=256, null=True, blank=True )
-    deduction_amount = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True, default=0)
+    deduction_amount = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True, default=0)
     month = models.DateField(auto_now_add=True, null=True)
+    gross_amount = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
 class TaxPercentage(models.Model):
     tax_percent = models.DecimalField(max_digits=4, decimal_places=2)
