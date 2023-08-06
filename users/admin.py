@@ -31,6 +31,9 @@ class UserDetailsAdmin(admin.ModelAdmin):
         'user',
         'salary',
     ]
+    exclude = [
+        'slug',
+    ]
     # prepopulated_fields = {'slug': ('user.username', )}
     def save_model(self, request, obj, form, change):
         obj.slug = obj.user.username
