@@ -2,7 +2,7 @@ from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView, DetailView
-from .models import UserModel, UserDetailsModel
+from .models import UserModel, UserDetailsModel, BankDetails
 from .forms import UserRegistrationForm
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -36,3 +36,10 @@ class EmployeeDetaisl(DetailView):
     def get_queryset(self):
         print("on user details query................")
         return UserDetailsModel.objects.select_related('user')
+    
+    def get_context_data(self, **kwargs):
+        context = super(EmployeeDetaisl, self).get_context_data(**kwargs)
+        user_data = list(self.get_queryset())[0].user
+        context['bank_details'] = BankDetails.objects.filter(user=user_data).first()
+        # print("queryset: ", list(self.get_queryset())[0].user.username)
+        return context
