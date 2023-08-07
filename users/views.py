@@ -3,6 +3,7 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView, DetailView
 from .models import UserModel, UserDetailsModel, BankDetails
+from payroll.models import MonthlyPayment
 from .forms import UserRegistrationForm
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -41,5 +42,6 @@ class EmployeeDetaisl(DetailView):
         context = super(EmployeeDetaisl, self).get_context_data(**kwargs)
         user_data = list(self.get_queryset())[0].user
         context['bank_details'] = BankDetails.objects.filter(user=user_data).first()
+        context['payroll'] = MonthlyPayment.objects.filter(user=user_data).last()
         # print("queryset: ", list(self.get_queryset())[0].user.username)
         return context

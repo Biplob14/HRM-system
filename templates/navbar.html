@@ -20,7 +20,7 @@
                 <li class="nav-item dropdown dropdown-cat">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Employees</a>
                     <ul class="dropdown-menu dropdown-menu-cat" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="">All Employees</a></li>
+                        <li><a class="dropdown-item" href="{% url 'users:employe_list' %}">All Employees</a></li>
                         <li><hr class="dropdown-divider"></li>
                         {% for category in categories %}
                             <li><a class="dropdown-item" href="{% url 'books:categorise_books' category.name %}">{{ category.name|title }}</a></li>

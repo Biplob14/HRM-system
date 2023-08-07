@@ -18,7 +18,7 @@ class MonthlyPayment(models.Model):
         return self.user.username
     
     def get_absolute_url(self):
-        return reverse("users:employe_details", args=[self.slug])
+        return reverse("payroll:payroll", args=[self.slug])
 
 class TaxPercentage(models.Model):
     tax_percent = models.DecimalField(max_digits=4, decimal_places=2)
