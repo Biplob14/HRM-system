@@ -16,7 +16,7 @@ class TaxPercentageAdmin(admin.ModelAdmin):
 
 @admin.register(MonthlyPayment)
 class MonthlyPaymentAdmin(admin.ModelAdmin):
-    readonly_fields=('gross_amount',)
+    readonly_fields=('gross_amount', 'tax_amount')
     exclude = [
         'slug',
     ]
