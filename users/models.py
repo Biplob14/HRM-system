@@ -36,11 +36,11 @@ class BankDetails(models.Model):
     def __str__(self):
         return self.user.username
 class UserDetailsModel(models.Model):
-    employee_id = models.IntegerField()
+    employee_id = models.IntegerField(null=True)
     joining_date = models.DateField(auto_now_add=True)
     birth_date = models.DateField(null=True)
-    department = models.ForeignKey(DepartmentModel, on_delete=models.DO_NOTHING)
-    designation = models.ForeignKey(DesignationModel, on_delete=models.DO_NOTHING)
+    department = models.ForeignKey(DepartmentModel, on_delete=models.DO_NOTHING, null=True)
+    designation = models.ForeignKey(DesignationModel, on_delete=models.DO_NOTHING, null=True)
     user = models.ForeignKey(UserModel, on_delete=models.DO_NOTHING, null=True)
     salary = models.DecimalField(max_digits=12, decimal_places=2, default=0)
     slug = models.SlugField(max_length=256, blank=True, null=True)
