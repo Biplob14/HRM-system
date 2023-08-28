@@ -9,8 +9,3 @@ def create_details(sender, instance, created, **kwargs):
     if created:
         print("receiver signal..........")
         UserDetailsModel.objects.create(user=instance)
-
-@receiver(post_save, sender=UserModel)
-def save_details(sender, instance, **kwargs):
-    instance.profile.save()
-    print("instance...: ", instance)
